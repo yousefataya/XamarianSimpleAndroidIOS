@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:SelectDetailPageXaml  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:Restaurant.Mobile.UI.Controls;assembly=Restaurant.Mobile.UI"
+             xmlns:pages="clr-namespace:Restaurant.Mobile.UI.Pages;assembly=Restaurant.Mobile.UI"
+             x:Class="Restaurant.Mobile.UI.Pages.SelectRoleDetail"
+             BackgroundColor="{StaticResource WindowBackgroundTable}"
+             Title="Details">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Security" Order="Primary" Icon="icons8_microsoft_admin_100.png" Text="Security" Priority="0" />
+        <ToolbarItem Name="Setting" Order="Primary" Icon="iconfinder_setting_icon_2541669.png" Text="Settings" Priority="0" />
+        <ToolbarItem Name="basket" Order="Primary" Icon="ic_basket.png" Text="basket" Priority="0" />
+        <ToolbarItem Name="Logout" Order="Secondary" Icon="ic_wechat.png" Text="Logout" Priority="1" />
+        <ToolbarItem Name="WhatApp" Order="Primary" Icon="icons8_whatsapp_100.png" Text="Logout" Priority="1" />
+    </ContentPage.ToolbarItems>
+    <pages:SelectDetailPageXaml.Content>
+
+        <Grid VerticalOptions="Fill" HorizontalOptions="Fill" Padding="24">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical" VerticalOptions="Fill" HorizontalOptions="Fill">
+
+                <Label Text="رقم الموبايل" BackgroundColor="DarkRed"></Label>
+                <controls:RestaurantEntry x:Name="mobileStack" WidthRequest="150" TextColor="SaddleBrown" HasBorder="True" Text="{Binding Mobile}"
+                                          Placeholder="رقم الموبايل"
+                                          HorizontalOptions="FillAndExpand"  />
+
+                <controls:Divider BackgroundColor="Green"></controls:Divider>
+
+                <Label Text="تاريخ" BackgroundColor="DarkRed"></Label>
+                <controls:RestaurantEntry x:Name="addressStack" WidthRequest="150" TextColor="SaddleBrown" HasBorder="True" Text="{Binding Address}"
+                                          Placeholder="تاريخ"
+                                          HorizontalOptions="FillAndExpand"  />
+
+
+
+                <controls:Divider BackgroundColor="Green"></controls:Divider>
+                <Label Text="اسم المكان" BackgroundColor="DarkRed"></Label>
+
+                <controls:RestaurantEntry x:Name="personStack" WidthRequest="150" TextColor="SaddleBrown" HasBorder="True" Text="{Binding Address}"
+                                          Placeholder="اسم المكان"
+                                          HorizontalOptions="FillAndExpand"  />
+            </StackLayout>
+            
+
+        </Grid>
+    </pages:SelectDetailPageXaml.Content>
+</pages:SelectDetailPageXaml>

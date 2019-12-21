@@ -1,0 +1,11 @@
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\bin\Release\netstandard2.0\Restaurant.Core.deps.json
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\bin\Release\netstandard2.0\Restaurant.Core.dll
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\bin\Release\netstandard2.0\Restaurant.Core.pdb
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\bin\Release\netstandard2.0\Restaurant.Abstractions.dll
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\bin\Release\netstandard2.0\Restaurant.Abstractions.pdb
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\obj\Release\netstandard2.0\Restaurant.Core.csprojAssemblyReference.cache
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\obj\Release\netstandard2.0\Restaurant.Core.AssemblyInfoInputs.cache
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\obj\Release\netstandard2.0\Restaurant.Core.AssemblyInfo.cs
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\obj\Release\netstandard2.0\Restaurant.Core.csproj.CopyComplete
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\obj\Release\netstandard2.0\Restaurant.Core.dll
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Core\obj\Release\netstandard2.0\Restaurant.Core.pdb

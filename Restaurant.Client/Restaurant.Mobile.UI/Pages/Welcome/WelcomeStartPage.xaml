@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<welcome:WelcomeStartPageXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                               xmlns:welcome="clr-namespace:Restaurant.Mobile.UI.Pages.Welcome;assembly=Restaurant.Mobile.UI"
+                               xmlns:controls="clr-namespace:Restaurant.Mobile.UI.Controls;assembly=Restaurant.Mobile.UI"
+                               x:Class="Restaurant.Mobile.UI.Pages.Welcome.WelcomeStartPage"
+                               BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Security" Order="Primary" Icon="icons8_microsoft_admin_100.png" Text="Security" Priority="0" />
+        <ToolbarItem Name="Setting" Order="Primary" Icon="iconfinder_setting_icon_2541669.png" Text="Settings" Priority="0" />
+        <ToolbarItem Name="basket" Order="Primary" Icon="ic_basket.png" Text="basket" Priority="0" />
+        <ToolbarItem Name="Logout" Order="Secondary" Icon="ic_wechat.png" Text="Logout" Priority="1" />
+        <ToolbarItem Name="WhatApp" Order="Primary" Icon="icons8_whatsapp_100.png" Text="Logout" Priority="1" />
+    </ContentPage.ToolbarItems>
+    <welcome:WelcomeStartPageXaml.Content >
+        
+        <Grid VerticalOptions="Fill" HorizontalOptions="Fill" Padding="24" CompressedLayout.IsHeadless="True">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical" VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Frame CornerRadius="10" 
+           HeightRequest="400"
+           WidthRequest="270"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                    <Image Source="logomain.jpeg" Aspect="AspectFill"  WidthRequest="400" HeightRequest="350"></Image>
+                </Frame>
+                <Image Source="icons8_take_away_food_100.png"  ></Image>
+               
+            </StackLayout>
+           
+            
+            <Grid Grid.Row="1" VerticalOptions="End">
+
+                <StackLayout x:Name="buttonStack" Spacing="0" Grid.Column="0" Scale="0" >
+                    <Label Text="تسجيل الدخول" TextColor="SteelBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                    <Frame CornerRadius="270" 
+           HeightRequest="100"
+           WidthRequest="100"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                        <controls:AnimateButton x:Name="SignInButton"   ImageSource="icons8_signin_64.png" WidthRequest="100" HeightRequest="100" Command="{Binding GoLogin}" BackgroundColor="White" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" x:Name="signUpStack" Scale="0" >
+                    <Label Text="عضو جديد" TextColor="SteelBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                    <Frame CornerRadius="270" 
+           HeightRequest="100"
+           WidthRequest="100"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                        <controls:AnimateButton x:Name="SignUpButton"   ImageSource="icons8_info_64.png" WidthRequest="100" HeightRequest="100" Command="{Binding GoRegister}" BackgroundColor="White" ></controls:AnimateButton>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+    </welcome:WelcomeStartPageXaml.Content>
+</welcome:WelcomeStartPageXaml>

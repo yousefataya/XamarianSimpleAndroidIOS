@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group android:id="@+id/nav_section_main" android:checkableBehavior="single">
+    <item
+      android:id="@+id/nav_foods"
+      android:icon="@drawable/ic_food"
+      android:title="المجلد" />
+    <item
+      android:id="@+id/nav_role"
+      android:icon="@drawable/icons8_supplier_100"
+      android:title="موظف" />
+    <item
+    android:id="@+id/nav_orders"
+    android:icon="@drawable/ic_basket"
+    android:title="معلومات المطاعم" />
+    <item
+      android:id="@+id/nav_chat"
+      android:icon="@drawable/ic_wechat"
+      android:title="دردشة" />
+  </group>
+
+  <item android:title="معلوماتي">
+    <menu>
+
+      <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="الاعدادات"
+        android:checkable="true" />
+      <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/ic_alert_circle_outline"
+        android:title="عن النظام"
+        android:checkable="true" />
+
+    </menu>
+  </item>
+</menu>

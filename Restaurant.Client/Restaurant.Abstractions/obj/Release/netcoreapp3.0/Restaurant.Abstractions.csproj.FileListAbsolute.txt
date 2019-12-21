@@ -1,0 +1,8 @@
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\bin\Release\netcoreapp3.0\Restaurant.Abstractions.deps.json
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\bin\Release\netcoreapp3.0\Restaurant.Abstractions.dll
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\bin\Release\netcoreapp3.0\Restaurant.Abstractions.pdb
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\obj\Release\netcoreapp3.0\Restaurant.Abstractions.csprojAssemblyReference.cache
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\obj\Release\netcoreapp3.0\Restaurant.Abstractions.AssemblyInfoInputs.cache
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\obj\Release\netcoreapp3.0\Restaurant.Abstractions.AssemblyInfo.cs
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\obj\Release\netcoreapp3.0\Restaurant.Abstractions.dll
+C:\Users\Yousef.Ataya\Desktop\RestaurantApp\src\Client\Restaurant.Client\Restaurant.Abstractions\obj\Release\netcoreapp3.0\Restaurant.Abstractions.pdb

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<pages:FoodDetailPageXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:pages="clr-namespace:Restaurant.Mobile.UI.Pages;assembly=Restaurant.Mobile.UI"
+                          xmlns:controls="clr-namespace:Restaurant.Mobile.UI.Controls;assembly=Restaurant.Mobile.UI"
+                          xmlns:views="clr-namespace:Restaurant.Mobile.UI.Views;assembly=Restaurant.Mobile.UI"
+                          xmlns:food="clr-namespace:Restaurant.Core.ViewModels.Food;assembly=Restaurant.Core"
+                          x:Class="Restaurant.Mobile.UI.Pages.FoodDetailPage"
+                          mc:Ignorable="d"
+                          d:DataContext="{d:DesignInstance food:FoodDetailViewModel}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Arabic" Order="Primary" Icon="ic_sa.png"  Text="Arabic" Priority="0" />
+        <ToolbarItem Name="English" Order="Primary" Icon="xp_usa.png" Text="English" Priority="0" />
+        <ToolbarItem Name="Chat" Order="Primary" Icon="ic_wechat.png" Text="Chat" Priority="1" />
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout>
+
+        <Grid AbsoluteLayout.LayoutBounds="1, 1, 1, .8"  BackgroundColor="White"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         Margin="0, 15, 0, 0"  >
+            <Frame CornerRadius="150" 
+           HeightRequest="100"
+           WidthRequest="100"
+                   BackgroundColor="White"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                <Image HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   Source="{Binding SelectedFood.Picture}"
+                   HeightRequest="100" 
+                    />
+            </Frame>
+            <Grid Opacity=".5" BackgroundColor="White" HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand" />
+
+            <StackLayout Padding="10, 10, 10, 35" VerticalOptions="EndAndExpand">
+                <StackLayout Spacing="0" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding SelectedFood.Name}"
+                               FontSize="18"
+                               TextColor="White">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS">HelveticaNeue-Light</On>
+                                    <On Platform="Android">sans-serif-light</On>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                       
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 8">
+                        <Label Text="{Binding SelectedFood.Description}"
+                               FontSize="12"
+                               TextColor="{StaticResource grayLight}" />
+                    </StackLayout>
+                    
+                </StackLayout>
+                
+            </StackLayout>
+            
+        </Grid>
+        <StackLayout AbsoluteLayout.LayoutBounds="0, 0.75, 1,AutoSize"
+                     AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional">
+            <StackLayout x:Name="Itemtack"   Orientation="Horizontal" VerticalOptions="EndAndExpand">
+
+                <Label Text="الحجم" FontSize="Medium" TextColor="DarkRed" FontAttributes="Italic" ></Label>
+                <Picker x:Name="FoodSize" WidthRequest="300">
+                    <Picker.SelectedItem>Small</Picker.SelectedItem>
+                    <Picker.Items>
+                        <x:String>صغير</x:String>
+                        <x:String>متوسط</x:String>
+                        <x:String>كبير</x:String>
+                        <x:String>حجم عائلي</x:String>
+                        <x:String>عرض خاص</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal"
+                         Margin="{StaticResource FoodDetailtPadding}">
+                <Label TextColor="{StaticResource grayDark}" VerticalOptions="Center" HorizontalOptions="Center"
+                       FontSize="16" Text="الحساب الكلي: " />
+                <Label TextColor="{StaticResource grayDark}" VerticalOptions="Center" HorizontalOptions="Center"
+                       Text="{Binding CurrentBasketItem.TotalPriceAnimated}" FontSize="16" />
+            </StackLayout>
+            <controls:Divider />
+            <views:StepperView Margin="{StaticResource FoodDetailtPadding}" MinValue="0" HorizontalOptions="Center"
+                               Value="{Binding CurrentBasketItem.Quantity}" />
+            <controls:Divider />
+           
+        </StackLayout>
+
+        
+
+        <controls:FloatingActionButton AbsoluteLayout.LayoutBounds=".9, .5, 50, 50"
+                                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                                       RippleColor="{StaticResource primaryColorLight}"
+                                       Image="heart_outline_white" />
+        
+        
+    </AbsoluteLayout>
+    
+</pages:FoodDetailPageXaml>

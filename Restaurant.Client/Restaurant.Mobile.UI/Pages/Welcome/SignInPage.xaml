@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<welcome:SignInPageXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:welcome="clr-namespace:Restaurant.Mobile.UI.Pages.Welcome"
+                         xmlns:controls="clr-namespace:Restaurant.Mobile.UI.Controls"
+                         xmlns:converters="clr-namespace:Restaurant.Mobile.UI.Converters;assembly=Restaurant.Mobile.UI"
+                         x:Class="Restaurant.Mobile.UI.Pages.Welcome.SignInPage"
+                         BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Arabic" Order="Primary" Icon="ic_sa.png"  Text="عربي" Priority="0" />
+        <ToolbarItem Name="English" Order="Primary" Icon="xp_usa.png" Text="انجليزي" Priority="0" />
+        <ToolbarItem Name="Chat" Order="Primary" Icon="ic_wechat.png" Text="دردشة" Priority="1" />
+    </ContentPage.ToolbarItems>
+    <welcome:SignInPageXaml.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" BasedOn="{StaticResource whiteLabelStyle}" />
+            <converters:InverseBoolConverter x:Key="InverseBooleanConverter" />
+        </ResourceDictionary>
+    </welcome:SignInPageXaml.Resources>
+
+    <welcome:SignInPageXaml.Content >
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" x:Name="uiMain" CompressedLayout.IsHeadless="True">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="25, 25, 25, 25" />
+                    <On Platform="Android" Value="15, 15, 15, 15" />
+                    <On Platform="Uwp" Value="10, 10, 10, 10" />
+                </OnPlatform>
+            </StackLayout.Padding>
+
+            <StackLayout Padding="10" x:Name="emailStack" Scale="0">
+                <Label Text="رقم موبايل#" BackgroundColor="DarkRed" />
+                <controls:RestaurantEntry TextColor="SaddleBrown" Placeholder="Mobile#" Text="{Binding Email}"
+                                          VerticalOptions="Center"
+                                          HorizontalOptions="FillAndExpand" HasBorder="True" />
+            </StackLayout>
+
+            <StackLayout Padding="10" x:Name="passwordStack" Scale="0">
+                <Label Text="كلمة سرية" BackgroundColor="DarkRed" />
+                <controls:RestaurantEntry TextColor="SaddleBrown" HasBorder="True" Text="{Binding Password}"
+                                          Placeholder="Enter password"
+                                          HorizontalOptions="FillAndExpand" IsPassword="true" />
+
+            </StackLayout>
+
+            <StackLayout Padding="10" HorizontalOptions="Center">
+                <Label Text="{Binding Error}" TextColor="Red"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" IsVisible="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}" Padding="10" x:Name="loginStack" Scale="0">
+                <Label Text="تسجيل الدخول" TextColor="SteelBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                <Frame CornerRadius="270" 
+           HeightRequest="100"
+           WidthRequest="100"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                    <controls:AnimateButton BackgroundColor="White"  ImageSource="iconfinder_login_59276.png"
+                                        HeightRequest="45" Command="{Binding Login}" />
+                </Frame>
+            </StackLayout>
+
+            <Grid Padding="10" IsVisible="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <controls:Divider Grid.Column="0" Padding="10, 0" />
+                <Label Text="Or" FontSize="14" TextColor="Black" Grid.Column="1" />
+                <controls:Divider Grid.Column="2" Padding="10, 0" />
+            </Grid>
+            <Grid Grid.Row="1" VerticalOptions="End">
+                <StackLayout Padding="10"  Grid.Column="0" HorizontalOptions="Center" IsVisible="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}">
+                    <Label Text="جوجل" TextColor="SteelBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                    <Frame CornerRadius="270" 
+           HeightRequest="100"
+           WidthRequest="100"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                        <controls:AnimateButton BackgroundColor="White"  ImageSource="iconfinder_social__media__social_media__google__3350442.png"
+                                        HeightRequest="45"></controls:AnimateButton>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Padding="10"  Grid.Column="1" HorizontalOptions="Center" IsVisible="{Binding IsLoading, Converter={StaticResource InverseBooleanConverter}}">
+                    <Label Text="فيسبوك" TextColor="SteelBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"></Label>
+                <Frame CornerRadius="270" 
+           HeightRequest="100"
+           WidthRequest="100"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                        <controls:AnimateButton BackgroundColor="White"  ImageSource="iconfinder_social__media__social_media__facebook__3350437.png"
+                                        HeightRequest="45"></controls:AnimateButton>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+            <StackLayout IsVisible="{Binding IsLoading}">
+                <ActivityIndicator IsRunning="{Binding IsLoading}" Color="{StaticResource primaryColor}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="EndAndExpand" />
+
+                <Label Text="{Binding Status}" FontSize="14"
+                       HorizontalOptions="Center"
+                       VerticalOptions="EndAndExpand" Style="{StaticResource whiteLabelStyle}"
+                       TextColor="{StaticResource grayDark}" />
+
+            </StackLayout>
+
+        </StackLayout>
+    </welcome:SignInPageXaml.Content>
+
+</welcome:SignInPageXaml>

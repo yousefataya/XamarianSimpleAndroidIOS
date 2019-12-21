@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CollectionView xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:views="clr-namespace:Restaurant.Mobile.UI.Views;assembly=Restaurant.Mobile.UI"
+                xmlns:controls="clr-namespace:Restaurant.Mobile.UI.Controls;assembly=Restaurant.Mobile.UI"
+                xmlns:converters="clr-namespace:Restaurant.Mobile.UI.Converters;assembly=Restaurant.Mobile.UI"
+                x:Class="Restaurant.Mobile.UI.Views.FoodsListView"
+                x:Name="list"
+                StyleId="foodsList">
+    <CollectionView.Resources>
+        <ResourceDictionary>
+            <converters:IsFilledIconConverter x:Key="IsFilledIconConverter" />
+        </ResourceDictionary>
+    </CollectionView.Resources>
+
+    <CollectionView.Header>
+        <views:FoodsSearchView />
+    </CollectionView.Header>
+    <CollectionView.Footer>
+        <ActivityIndicator IsRunning="True">
+            <ActivityIndicator.Color>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="{StaticResource primaryColor}" />
+                </OnPlatform>
+            </ActivityIndicator.Color>
+        </ActivityIndicator>
+    </CollectionView.Footer>
+
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <controls:CardView Padding="{DynamicResource CardPadding}" HeightRequest="300" BackgroundColor="White">
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HeightRequest="300">
+                    <Grid HeightRequest="100" WidthRequest="100">
+                        <Frame CornerRadius="150" 
+           HeightRequest="150"
+           WidthRequest="150"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+
+                            <controls:AnimateButton BackgroundColor="White"  x:Name="photoImage"  WidthRequest="150" HeightRequest="150" ImageSource="{Binding Picture}"  />
+                        </Frame>
+                        <ActivityIndicator VerticalOptions="Center"
+                                           WidthRequest="25"
+                                           HeightRequest="25"
+                                           IsRunning="{Binding Source={x:Reference photoImage}, Path=IsLoading}"
+                                           IsVisible="{Binding Source={x:Reference photoImage}, Path=IsLoading}">
+                            <ActivityIndicator.Color>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="Android" Value="{StaticResource primaryColor}" />
+                                </OnPlatform>
+                            </ActivityIndicator.Color>
+                        </ActivityIndicator>
+                    </Grid>
+
+                    <StackLayout Padding="10, 10, 10, 3">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontSize="Medium"
+                                   TextColor="#d69e2e"
+                                   VerticalOptions="CenterAndExpand" />
+
+                            <Label Text="{Binding Description}"
+                                   Style="{StaticResource FoodsListDescriptionLabelStyle}"
+                                   FontSize="Micro" TextColor="DarkRed"
+                                    />
+
+                            
+                            
+                        </StackLayout>
+
+                        <controls:HeaderDivider />
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Rs. "
+                                       FontSize="Small"
+                                       TextColor="{StaticResource asphaltPrimary}"
+                                       VerticalOptions="CenterAndExpand" />
+
+                                <Label Text="{Binding Price, StringFormat='{0:C}'}"
+                                       FontSize="Small"
+                                       TextColor="{StaticResource  asphaltPrimary}"
+                                       VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+
+                            <controls:AnimatedImage
+                                Margin="10"
+                                Source="{Binding IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='like'}"
+                                Grid.Column="1"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand">
+                                <controls:AnimatedImage.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding FavoriteCommand}" />
+                                </controls:AnimatedImage.GestureRecognizers>
+                            </controls:AnimatedImage>
+                        </Grid>
+
+                    </StackLayout>
+                </StackLayout>
+            </controls:CardView>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<welcome:SignUpPageXaml xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:welcome="clr-namespace:Restaurant.Mobile.UI.Pages.Welcome"
+                        xmlns:controls="clr-namespace:Restaurant.Mobile.UI.Controls"
+                        x:Class="Restaurant.Mobile.UI.Pages.Welcome.SignUpPage"
+                        BackgroundColor="White">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Arabic" Order="Primary" Icon="ic_sa.png"  Text="عربي" Priority="0" />
+        <ToolbarItem Name="English" Order="Primary" Icon="xp_usa.png" Text="انجليزي" Priority="0" />
+        <ToolbarItem Name="Chat" Order="Primary" Icon="ic_wechat.png" Text="دردشة" Priority="1" />
+    </ContentPage.ToolbarItems>
+    
+    <welcome:SignUpPageXaml.Content>
+        <StackLayout VerticalOptions="Center" Padding="25" CompressedLayout.IsHeadless="True">
+            <StackLayout Orientation="Vertical">
+
+                <StackLayout Orientation="Vertical" Padding="15">
+
+                    <Label Text="رقم موبايل#" BackgroundColor="DarkRed" />
+
+                    <controls:RestaurantEntry TextColor="SaddleBrown" Text="{Binding Email}" Placeholder="Mobile#"
+                                                  VerticalOptions="Center"
+                                                  HorizontalOptions="FillAndExpand" HasBorder="False" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Padding="15">
+
+                    <Label Text="كلمة سرية" BackgroundColor="DarkRed" />
+
+                    <controls:RestaurantEntry HasBorder="False" TextColor="SaddleBrown" Placeholder="Password"
+                                                  HorizontalOptions="FillAndExpand" IsPassword="true"
+                                                  Text="{Binding Password}" />
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Padding="15">
+
+                    <Label Text="تاكيد الكلمة السرية" BackgroundColor="DarkRed" />
+
+                    <controls:RestaurantEntry HasBorder="False" TextColor="SaddleBrown" Placeholder="Confirm password"
+                                                  HorizontalOptions="FillAndExpand" IsPassword="true"
+                                                  Text="{Binding ConfirmPassword}" />
+
+
+                </StackLayout>
+
+                <StackLayout Padding="15" HorizontalOptions="Center">
+                    <Frame CornerRadius="270" 
+           HeightRequest="100"
+           WidthRequest="100"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                        <controls:AnimateButton ImageSource="icons8_registration_100.png" Command="{Binding Register}" 
+                                            
+                                            WidthRequest="300" HorizontalOptions="Center" />
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="End"
+                         IsVisible="{Binding IsLoading}">
+                <Label VerticalOptions="Center" TextColor="{StaticResource asphaltPrimary}">Please wait...</Label>
+                <ActivityIndicator VerticalOptions="Center" IsRunning="{Binding IsLoading}" />
+            </StackLayout>
+        </StackLayout>
+    </welcome:SignUpPageXaml.Content>
+</welcome:SignUpPageXaml>

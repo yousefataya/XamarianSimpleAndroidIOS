@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+    
+<pages:Windows10ThemePageXaml  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Restaurant.Mobile.UI.Converters;assembly=Restaurant.Mobile.UI"
+             mc:Ignorable="d"
+             xmlns:pages="clr-namespace:Restaurant.Mobile.UI.Pages;assembly=Restaurant.Mobile.UI"
+             x:Class="Restaurant.Mobile.UI.Pages.Windows10Theme"
+             BackgroundColor="White"
+             xmlns:views="clr-namespace:Restaurant.Mobile.UI.Views;assembly=Restaurant.Mobile.UI"
+             d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}"
+             Icon="restaurant" 
+             Title="Details">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Security" Order="Primary" Icon="icons8_microsoft_admin_100.png" Text="Security" Priority="0" />
+        <ToolbarItem Name="Setting" Order="Primary" Icon="icons8_administrative_tools_100.png" Text="Settings" Priority="0" />
+        <ToolbarItem Name="basket" Order="Primary" Icon="ic_basket.png" Text="basket" Priority="0" />
+        <ToolbarItem Name="Logout" Order="Secondary" Icon="ic_wechat.png" Text="Logout" Priority="1" />
+        <ToolbarItem Name="WhatApp" Order="Primary" Icon="icons8_whatsapp_100.png" Text="Logout" Priority="1" />
+    </ContentPage.ToolbarItems>
+    <pages:Windows10ThemePageXaml.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </pages:Windows10ThemePageXaml.Resources>
+    <pages:Windows10ThemePageXaml.Content>
+        <views:SettingsRenderedView ItemsSource="{Binding Settings}"
+                             IsVisible="{Binding IsLoading, Converter={StaticResource InverseBoolConverter}}"
+                             SelectionMode="Single"
+                             x:Name="RestsList" />
+    </pages:Windows10ThemePageXaml.Content>
+</pages:Windows10ThemePageXaml>
